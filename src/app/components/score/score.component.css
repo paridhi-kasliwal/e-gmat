@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+}
+  
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+h3 {
+    font-weight: 500;
+    font-size: 150%;
+}
+
+label {
+    font-weight: 500;
+    padding-right: 10px;
+}
+
+.padding-class {
+    padding-left: 250px;
+}
+
+.btn {
+    margin: 25px 0px 0px 589px; 
+    border-radius: 10px;
+    background-color:#0fa2eb;
+    color: white;
+}
+
+.total-graph {
+    background-color: #8080800d; 
+    margin-top: 50px;
+}
