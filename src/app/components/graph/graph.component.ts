@@ -22,6 +22,10 @@ export class GraphComponent implements OnInit {
 
   constructor() { }
 
+  /**
+   * @method ngOnInit
+   * @desc calculate scores and percentage of current and target score
+   */
   ngOnInit() {
     let t_percrnt: any;
     switch (this.graph_type) {

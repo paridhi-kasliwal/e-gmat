@@ -1,23 +1,26 @@
-<div class="container" [ngClass]="{'total-score-container': graph_type === 'Total Score', 'quant-container': graph_type === 'Quant Score', 'verbal-container': graph_type === 'Verbal Score'}" *ngIf="show">
-    <h2>{{graph_type}}</h2>
-    <h2>
-        <span *ngIf="graph_type === 'Quant Score'">Q{{current_total}}</span>
-        <span *ngIf="graph_type === 'Verbal Score'">V{{current_total}}</span>
-    </h2>
-    <h2 *ngIf="graph_type === 'Total Score'">{{current_total}}</h2>
-    <div style="padding-top: 25px;">
-        <div class="triangle-down"></div>
-        <div class="progress margin-class" [ngClass]="{'total-graph': graph_type === 'Total Score', 'quant-verbal-graph': graph_type === 'Quant Score' || graph_type === 'Verbal Score'}">
-            <div class="progress-bar current-color" role="progressbar" [ngStyle]="{'width':current_percent+ '%'}"></div>
+<div class="total-score-container" *ngIf="show">
+    <h3>
+        {{graph_type}}
+        <p>
+            <span *ngIf="graph_type === 'Quant Score'">Q{{current_total}}</span>
+            <span *ngIf="graph_type === 'Verbal Score'">V{{current_total}}</span>
+            <span *ngIf="graph_type === 'Total Score'">{{current_total}}</span>
+        </p>
+    </h3>
+    <div class="graph-container">
+        <div class="progress graph-width">
+            <div class="triangle-down" [ngStyle]="{'left':'calc(' + current_percent + '% - 10px)'}"></div>
+            <div class="triangle-up" [ngStyle]="{'left':'calc(' + (current_percent + target_percent) + '% - 10px)'}"></div>
+            <div class="progress-bar current-color" role="progressbar" [ngStyle]="{'width':current_percent+ '%'}">
+            </div>
             <div class="progress-bar target-color" role="progressbar" [ngStyle]="{'width':target_percent+ '%'}">
                 <span style="color: grey;" *ngIf="target_percent > 0">+{{target_total-current_total}}</span>
             </div>
         </div>
-        <div class="triangle-up"></div>
     </div>
+    <p class="msg" *ngIf="target_percent === 0">{{constants.current_target_score_equal(current_total)}}</p>
+
+    <p class="msg" *ngIf="target_percent > 0">{{constants.current_higher_than_target_score(current_total, target_total-current_total, graph_type, target_total)}}</p>
+
+    <p class="msg" *ngIf="target_percent < 0">{{constants.current_lower_than_target_score(current_total, current_total-target_total, graph_type, target_total)}}</p>
 </div>
-<p style="padding-top: 15px; padding-bottom: 15px" [ngClass]="{'verbal-text-msg': graph_type === 'Verbal Score', 'total-quant-text-msg ': graph_type === 'Total Score' || graph_type === 'Quant Score'}" *ngIf="target_percent === 0">{{constants.current_target_score_equal(current_total)}}</p>
-
-<p style="padding-top: 15px; padding-bottom: 15px" [ngClass]="{'verbal-text-msg': graph_type === 'Verbal Score', 'total-quant-text-msg ': graph_type === 'Total Score' || graph_type === 'Quant Score'}" *ngIf="target_percent > 0">{{constants.current_higher_than_target_score(current_total, target_total-current_total, graph_type, target_total)}}</p>
-
-<p style="padding-top: 15px; padding-bottom: 15px" [ngClass]="{'verbal-text-msg': graph_type === 'Verbal Score', 'total-quant-text-msg ': graph_type === 'Total Score' || graph_type === 'Quant Score'}" *ngIf="target_percent < 0">{{constants.current_lower_than_target_score(current_total, current_total-target_total, graph_type, target_total)}}</p>

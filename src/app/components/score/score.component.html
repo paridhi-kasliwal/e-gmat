@@ -1,38 +1,59 @@
-<div class="row">
-    <div class="column padding-class">
-        <h3>Quant</h3>
-        <div>
-            <label>Current</label>
-            <input type="text" [(ngModel)]="quant_score_current" maxlength="2" (ngModelChange)="onChange($event, 'quant_score_current')"/>
-
-            <label style="margin-left: 10px;">Target</label>
-            <input type="text" [(ngModel)]="quant_score_target" maxlength="2" (ngModelChange)="onChange($event, 'quant_score_target')"/>
+<div class="wapper">
+    <article class="row-submitRef">
+        <section class="row">
+            <aside class="column-6">
+                <h3>Quant</h3>
+                <div class="row">
+                    <div class="column-6">
+                        <div class="input-sec">
+                            <label>Current</label>
+                            <input type="number" [(ngModel)]="quant_score_current" min="1" max="60" (ngModelChange)="onChange($event, 'quant_score_current')"/>
+                        </div>
+                    </div>
+                    <div class="column-6">
+                        <div class="input-sec">
+                            <label>Target</label>
+                            <input type="number" [(ngModel)]="quant_score_target" min="1" max="60" (ngModelChange)="onChange($event, 'quant_score_target')"/>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <aside class="column-6">
+                <h3>Verbal</h3>
+                <div class="row">
+                    <div class="column-6">
+                        <div class="input-sec">
+                            <label>Current</label>
+                            <input type="number" [(ngModel)]="verbal_score_current" min="1" max="60" (ngModelChange)="onChange($event, 'verbal_score_current')"/>
+                        </div>
+                    </div>
+                    <div class="column-6">
+                        <div class="input-sec">
+                            <label>Target</label>
+                            <input type="number" [(ngModel)]="verbal_score_target" min="1" max="60" (ngModelChange)="onChange($event, 'verbal_score_target')"/>   
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </section>
+        <div class="btn-submitSec">
+            <button type="button" class="btn btn-submit" (click)="onSubmit()">Submit and Refresh</button>
         </div>
-    </div>
-    <div class="column">
-        <h3>Verbal</h3>
-        <div>
-            <label>Current</label>
-            <input type="text" [(ngModel)]="verbal_score_current" maxlength="2" (ngModelChange)="onChange($event, 'verbal_score_current')"/>
-
-            <label style="margin-left: 10px;">Target</label>
-            <input type="text" [(ngModel)]="verbal_score_target" maxlength="2" (ngModelChange)="onChange($event, 'verbal_score_target')"/>   
-        </div>
-    </div>
-</div>
+    </article>
+        
     
-<button type="button" class="btn" (click)="onSubmit()">Submit and Refresh</button>
 
-<div class="total-graph">
-    <app-graph *ngIf="isFormSubmitted" [graph_type]="'Total Score'" [q_current]="quant_score_current" [q_target]="quant_score_target" [v_current]="verbal_score_current" [v_target]="verbal_score_target"></app-graph>
-</div>
-
-<div class="row">
-    <div class="column">
-        <app-graph *ngIf="isFormSubmitted" [graph_type]="'Quant Score'" [q_current]="quant_score_current" [q_target]="quant_score_target"></app-graph>
+    <div class="total-graph">
+        <app-graph *ngIf="isFormSubmitted" [graph_type]="'Total Score'" [q_current]="quant_score_current" [q_target]="quant_score_target" [v_current]="verbal_score_current" [v_target]="verbal_score_target"></app-graph>
     </div>
 
-    <div class="column">
-        <app-graph *ngIf="isFormSubmitted" [graph_type]="'Verbal Score'" [v_current]="verbal_score_current" [v_target]="verbal_score_target"></app-graph>
+    <div class="row">
+        <div class="column-6">
+            <app-graph *ngIf="isFormSubmitted" [graph_type]="'Quant Score'" [q_current]="quant_score_current" [q_target]="quant_score_target"></app-graph>
+        </div>
+
+        <div class="column-6">
+            <app-graph *ngIf="isFormSubmitted" [graph_type]="'Verbal Score'" [v_current]="verbal_score_current" [v_target]="verbal_score_target"></app-graph>
+        </div>
     </div>
 </div>

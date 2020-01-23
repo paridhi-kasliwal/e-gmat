@@ -25,7 +25,7 @@ import { OnlyNumberDirective } from './shared/directives/only-number.directive';
     FormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
-      timeOut: 10000,
+      timeOut: 5000,
       positionClass: 'toast-top-right',
       preventDuplicates: true,
     })

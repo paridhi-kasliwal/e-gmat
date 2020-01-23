@@ -17,36 +17,36 @@ export class ScoreComponent implements OnInit {
 
   ngOnInit() {}
 
+  /**
+   * @method onSubmit
+   * @desc submit scores on button click
+   */
   onSubmit() {
-    this.isFormSubmitted = true;
+    if (this.quant_score_current != undefined && this.quant_score_target != undefined && this.verbal_score_current != undefined && this.verbal_score_target != undefined ) {
+      this.isFormSubmitted = true;
+    } else {
+      this.toastr.error('Please enter values. ', 'Error');
+    }
   }
 
+  /**
+   * @method onChange
+   * @desc when value changes and validate input values
+   */
   onChange(e, type) {
-    console.log(e);
-    if (e !== '') {
-      if (e > 60) {
+      if (e < 1 || e > 60 || e % 1 !== 0) {
         if (type === 'quant_score_current') {
-          this.quant_score_current = 0;
+          this.quant_score_current = 1;
         } else if (type === 'quant_score_target') {
-          this.quant_score_target = 0;
+          this.quant_score_target = 1;
         } else if (type === 'verbal_score_current') {
-          this.verbal_score_current = 0;
+          this.verbal_score_current = 1;
         } else if (type === 'verbal_score_target') {
-          this.verbal_score_target = 0;
+          this.verbal_score_target = 1;
         }
-        this.toastr.error('Please enter value less than 60.', 'Error');
+        this.toastr.error('Please enter value between 1 to 60.', 'Error');
       } else {
-        if (type === 'quant_score_current') {
-          this.quant_score_current = parseInt(this.quant_score_current);
-        } else if (type === 'quant_score_target') {
-          this.quant_score_target = parseInt(this.quant_score_target);
-        } else if (type === 'verbal_score_current') {
-          this.verbal_score_current = parseInt(this.verbal_score_current);
-        } else if (type === 'verbal_score_target') {
-          this.verbal_score_target = parseInt(this.verbal_score_target);
-        }
+        this.isFormSubmitted = false;
       }
-    }
-    this.isFormSubmitted = false;
   }
 }

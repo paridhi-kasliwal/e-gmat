@@ -1,5 +1,11 @@
 * {
+    outline:none;
+    box-shadow:none;
     box-sizing: border-box;
+}
+*:focus, *:active{
+    outline:none;
+    box-shadow:none;
 }
   
 .column {
@@ -16,7 +22,8 @@
 
 h3 {
     font-weight: 500;
-    font-size: 150%;
+    font-size:28px;
+    padding-bottom:30px;
 }
 
 label {
@@ -24,18 +31,28 @@ label {
     padding-right: 10px;
 }
 
-.padding-class {
-    padding-left: 250px;
-}
-
-.btn {
-    margin: 25px 0px 0px 589px; 
+.btn{
+    margin:25px auto 0px;
     border-radius: 10px;
     background-color:#0fa2eb;
-    color: white;
+    color:white;
 }
-
 .total-graph {
     background-color: #8080800d; 
     margin-top: 50px;
+}
+
+.row-submitRef{
+    padding-top:30px;
+}
+.btn-submitSec .btn-submit{
+    margin:auto;
+    padding:5px 30px;
+    border-radius:25px;
+}
+.btn-submitSec{
+    width:100%;
+    padding-top:30px;
+    text-align: center;
+    display:inline-block;
 }

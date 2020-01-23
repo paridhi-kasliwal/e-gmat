@@ -1,1 +1,59 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+    margin:0px;
+    padding:0px;
+}
+
+.wapper{
+    width:100%;
+    margin:auto;
+    max-width:1180px;
+    padding:0px 15px;
+}
+.row{    
+    display:flex;
+    margin:0px -15px;
+    flex-direction:row;
+}
+
+[class*="column-"]{
+    padding:0px 15px;
+}
+
+.column-6:{
+    max-width:50%;
+    flex:0px 0px 50%;
+}
+
+.input-sec{
+    display:flex;
+    flex-direction: row;
+}
+
+.input-sec label{
+    margin:0px;
+    line-height:34px;
+}
+
+input{
+    width:200px;
+    padding:5px 10px;
+}
+
+h1,h2,h3,h4,h5,h6{
+    margin:0px;
+    padding-bottom:15px;
+}
+
+h2 p{
+    margin:0px;
+    padding:10px 0px 0px;
+}
+
+p {
+    margin: 0px;
+}
+
+.progress{
+    border-radius:0px;
+}
