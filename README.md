@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Setup
 
-* Clone github project directory ()
+* Clone github project directory (https://gitHub.com/paridhi-kasliwal/e-gmat)
 * Run `npm install` in root directory
 * For Launch application in local system without build, Run `ng serve`
 * Open http://localhost:4200 in browser
@@ -20,7 +20,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://gitHub.com/paridhi-kasliwal/e-gmat).
+Run `ng test` to execute the unit tests via [Karma].
 
 ## Running end-to-end tests
 
